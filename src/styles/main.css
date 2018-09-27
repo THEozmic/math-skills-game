@@ -1,0 +1,19 @@
+body {
+  margin: 0;
+  padding: 20px;
+  font-family: sans-serif;
+  color: #3e3939;
+}
+
+.header {
+  border-bottom: 1px solid #d1dee8;
+  padding: 10px 0;
+}
+
+.container {
+  display: grid;
+}
+
+.item {
+  display: inline-grid;
+}
