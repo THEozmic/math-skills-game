@@ -14,14 +14,45 @@ class Game extends Component {
     answerIsCorrect: null,
     usedNumbers: [],
     redraws: 5,
-    doneStatus: null
+    doneStatus: null,
+    gameStarted: false,
+    timeRemaining: 30
   });
+
+  static timer;
 
   state = Game.initialState();
 
   resetGame = () => this.setState(Game.initialState());
 
+  startTimer = () => {
+    if (this.state.gameStarted) {
+      Game.timer = setInterval(() => {
+        if (this.state.timeRemaining === 0) {
+          clearInterval(Game.timer);
+          if (!this.state.doneStatus) {
+            this.setState({
+              doneStatus: "Game Over!!"
+            });
+          }
+          return;
+        }
+        this.setState(prevState => ({
+          timeRemaining: prevState.timeRemaining - 1
+        }));
+      }, 1000);
+    }
+  };
+
   selectNumber = clickedNumber => {
+    if (!this.state.gameStarted) {
+      this.setState(
+        {
+          gameStarted: true
+        },
+        this.startTimer
+      );
+    }
     if (
       clickedNumber &&
       this.state.selectedNumbers.indexOf(clickedNumber) == -1 &&
@@ -29,7 +60,8 @@ class Game extends Component {
     ) {
       this.setState(prevState => ({
         answerIsCorrect: null,
-        selectedNumbers: [...prevState.selectedNumbers, clickedNumber]
+        selectedNumbers: [...prevState.selectedNumbers, clickedNumber],
+        gameStarted: true
       }));
     }
   };
@@ -132,7 +164,11 @@ class Game extends Component {
   render() {
     return (
       <div>
-        <h3 className="header">Play Nine</h3>
+        <h3 className="header">
+          Play Nine
+          <span className="timer">{this.state.timeRemaining} s</span>
+        </h3>
+
         <div className="container">
           <Stars numberOfStars={this.state.numberOfStars} />
           <Button

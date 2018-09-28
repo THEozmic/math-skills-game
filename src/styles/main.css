@@ -10,6 +10,11 @@ body {
   padding: 10px 0;
 }
 
+.timer {
+  float: right;
+  color: #e91e63;
+}
+
 .container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
