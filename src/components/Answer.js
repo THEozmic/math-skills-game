@@ -1,9 +1,19 @@
 import React, { Component } from "react";
 
-class Answer extends Component {
-  render() {
-    return <div className="item">...</div>;
-  }
-}
+const Answer = ({ selectedNumbers = [], unselectNumber }) => {
+  return (
+    <div className="item answer">
+      {selectedNumbers.map((number, index) => (
+        <span
+          className="number"
+          key={index}
+          onClick={() => unselectNumber(number)}
+        >
+          {number}
+        </span>
+      ))}
+    </div>
+  );
+};
 
 export default Answer;
