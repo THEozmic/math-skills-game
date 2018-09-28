@@ -55,8 +55,8 @@ class Game extends Component {
     }
     if (
       clickedNumber &&
-      this.state.selectedNumbers.indexOf(clickedNumber) == -1 &&
-      this.state.usedNumbers.indexOf(clickedNumber) == -1
+      this.state.selectedNumbers.indexOf(clickedNumber) === -1 &&
+      this.state.usedNumbers.indexOf(clickedNumber) === -1
     ) {
       this.setState(prevState => ({
         answerIsCorrect: null,
@@ -68,11 +68,11 @@ class Game extends Component {
 
   unselectNumber = clickedNumber => {
     if (!clickedNumber) return;
-    if (this.state.selectedNumbers.indexOf(clickedNumber) == -1) return;
+    if (this.state.selectedNumbers.indexOf(clickedNumber) === -1) return;
     this.setState(prevState => ({
       answerIsCorrect: null,
       selectedNumbers: prevState.selectedNumbers.filter(
-        number => number != clickedNumber
+        number => number !== clickedNumber
       )
     }));
   };
