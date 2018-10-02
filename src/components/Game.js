@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Stars from "./Stars";
-import ControlsButton from "./ControlsButton";
+import ControlsButtons from "./ControlsButtons";
 import Answer from "./Answer";
 import Numbers from "./Numbers";
 import DoneFrame from "./DoneFrame";
@@ -167,7 +167,7 @@ class Game extends Component {
 
         <div className="container">
           <Stars numberOfStars={this.state.numberOfStars} />
-          <ControlsButton
+          <ControlsButtons
             selectedNumbers={this.state.selectedNumbers}
             checkAnswer={this.checkAnswer}
             answerIsCorrect={this.state.answerIsCorrect}
