@@ -4,7 +4,6 @@
   "private": true,
   "homepage": "http://theozmic.github.io/math-skills-game",
   "dependencies": {
-    "enzyme-adapter-react-16": "^1.5.0",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-scripts": "1.1.5"
