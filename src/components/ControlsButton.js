@@ -1,6 +1,6 @@
 import React from "react";
 
-const Button = props => {
+const ControlsButton = props => {
   const {
     selectedNumbers = [],
     checkAnswer,
@@ -72,4 +72,4 @@ const Button = props => {
   );
 };
 
-export default Button;
+export default ControlsButton;
