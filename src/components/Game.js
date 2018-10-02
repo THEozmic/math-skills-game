@@ -78,10 +78,6 @@ class Game extends Component {
   };
 
   checkAnswer = () => {
-    console.log(
-      this.state.numberOfStars,
-      this.state.selectedNumbers.reduce((acc, n) => acc + n, 0)
-    );
     this.setState(prevState => ({
       answerIsCorrect:
         prevState.numberOfStars ===
